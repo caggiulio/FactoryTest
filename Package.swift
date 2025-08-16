@@ -20,23 +20,23 @@ let package = Package(
             name: "FactoryKit",
             targets: ["FactoryKit"]
         ),
-        .library(
-            name: "FactoryMacros",
-            targets: ["FactoryKit", "FactoryMacros"]
-        ),
+//        .library(
+//            name: "FactoryMacros",
+//            targets: ["FactoryKit", "FactoryMacros"]
+//        ),
         .library(
             name: "FactoryTesting",
             targets: ["FactoryTesting"]
         ),
-        .executable(
-            name: "FactoryMacrosClient",
-            targets: ["FactoryMacrosClient"]
-        ),
+//        .executable(
+//            name: "FactoryMacrosClient",
+//            targets: ["FactoryMacrosClient"]
+//        ),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.1.0"),
-        .package(url: "https://github.com/swiftlang/swift-syntax.git", exact: "601.0.1"),
+//        .package(url: "https://github.com/swiftlang/swift-syntax.git", exact: "601.0.1"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -47,32 +47,32 @@ let package = Package(
             resources: [.copy("PrivacyInfo.xcprivacy")],
             swiftSettings: FactorySwiftSetting.common
         ),
-        .target(
-            name: "FactoryMacros",
-            dependencies: [
-                "FactoryKit",
-                "FactoryMacrosImplementation",
-            ],
-            swiftSettings: FactorySwiftSetting.common
-        ),
-        .macro(
-            name: "FactoryMacrosImplementation",
-            dependencies: [
-                "FactoryKit",
-                .product(name: "SwiftSyntax", package: "swift-syntax"),
-                .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
-                .product(name: "SwiftCompilerPlugin", package: "swift-syntax")
-            ],
-            swiftSettings: FactorySwiftSetting.common
-        ),
-        .executableTarget(
-            name: "FactoryMacrosClient",
-            dependencies: [
-                "FactoryKit",
-                "FactoryMacros",
-            ],
-            swiftSettings: FactorySwiftSetting.common
-        ),
+//        .target(
+//            name: "FactoryMacros",
+//            dependencies: [
+//                "FactoryKit",
+//                "FactoryMacrosImplementation",
+//            ],
+//            swiftSettings: FactorySwiftSetting.common
+//        ),
+//        .macro(
+//            name: "FactoryMacrosImplementation",
+//            dependencies: [
+//                "FactoryKit",
+//                .product(name: "SwiftSyntax", package: "swift-syntax"),
+//                .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
+//                .product(name: "SwiftCompilerPlugin", package: "swift-syntax")
+//            ],
+//            swiftSettings: FactorySwiftSetting.common
+//        ),
+//        .executableTarget(
+//            name: "FactoryMacrosClient",
+//            dependencies: [
+//                "FactoryKit",
+//                "FactoryMacros",
+//            ],
+//            swiftSettings: FactorySwiftSetting.common
+//        ),
         .target(
             name: "FactoryTesting",
             dependencies: [
@@ -83,7 +83,7 @@ let package = Package(
         .testTarget(
             name: "FactoryTests",
             dependencies: [
-                "FactoryMacros",
+//                "FactoryMacros",
                 "FactoryTesting"
             ],
             swiftSettings: FactorySwiftSetting.common
