@@ -10,6 +10,7 @@ import FactoryMacros
 import Common
 import Networking
 
+@MainActor
 class ContentViewModel: ObservableObject {
 
     @Injected(\.myServiceType) private var service
@@ -38,6 +39,8 @@ class ContentViewModel: ObservableObject {
     }
 
     func testFactory() {
+        let m0 = Container.shared.myServiceType()
+        print("MyServiceType - \(m0.text())")
         let m1 = CycleDemo()
         print("CycleDemo - W/O ROOT \(m1.aService === m1.bService)")
         let m2 = Container.shared.cycleDemo()
@@ -57,6 +60,11 @@ class ContentViewModel: ObservableObject {
         let processors = Container.shared.processors()
         processors.forEach { p in
             print(p.name)
+        }
+
+        DispatchQueue.main.async {
+            let m9 = Container.shared.myServiceType()
+            print("MyServiceType - \(m9.text())")
         }
     }
 

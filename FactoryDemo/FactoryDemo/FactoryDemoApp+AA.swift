@@ -20,7 +20,7 @@ final class AAMockService: AAService {
     let name = "MockService"
 }
 
-final class AAContainer: SharedContainer {
+final class AAContainer: @preconcurrency SharedContainer {
     static let shared = AAContainer()
     let manager = ContainerManager()
 

@@ -9,7 +9,7 @@ import Foundation
 import FactoryMacros
 
 // something with an asynchronous initializer
-struct AsyncInit {
+nonisolated struct AsyncInit {
     let a: Int
     init() async {
         a = 1
@@ -17,7 +17,7 @@ struct AsyncInit {
 }
 
 // generic wrapper for any asynchronous initializer
-struct AsyncInitWrapper<T> {
+nonisolated struct AsyncInitWrapper<T> {
     let wrapped: () async -> T
 }
 

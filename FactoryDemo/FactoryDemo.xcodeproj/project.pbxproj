@@ -33,6 +33,7 @@
 		4CAA10E02C2C7EAC00799300 /* AsyncInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA10DF2C2C7EAC00799300 /* AsyncInit.swift */; };
 		4CB1FA8D2DFCADBF00E8AD65 /* FactoryTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 4CB1FA8C2DFCADBF00E8AD65 /* FactoryTesting */; };
 		4CC679202966749400FFBB6C /* FactoryDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC6791F2966749400FFBB6C /* FactoryDemoUITests.swift */; };
+		4CE7C4462E36C246007341A4 /* MainActorContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE7C4452E36C236007341A4 /* MainActorContainer.swift */; };
 		4CEEC349284927EE00C979B3 /* FactoryDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEC348284927EE00C979B3 /* FactoryDemoApp.swift */; };
 		4CEEC34B284927EE00C979B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEC34A284927EE00C979B3 /* ContentView.swift */; };
 		4CEEC34D284927EF00C979B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CEEC34C284927EF00C979B3 /* Assets.xcassets */; };
@@ -129,6 +130,7 @@
 		4CC6791F2966749400FFBB6C /* FactoryDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryDemoUITests.swift; sourceTree = "<group>"; };
 		4CCC840D2868CF5B00B474F7 /* Common.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Common.xcodeproj; path = Common/Common.xcodeproj; sourceTree = "<group>"; };
 		4CCC84382868CF8900B474F7 /* Networking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Networking.xcodeproj; path = Networking/Networking.xcodeproj; sourceTree = "<group>"; };
+		4CE7C4452E36C236007341A4 /* MainActorContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainActorContainer.swift; sourceTree = "<group>"; };
 		4CEEC345284927EE00C979B3 /* FactoryDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FactoryDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CEEC348284927EE00C979B3 /* FactoryDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryDemoApp.swift; sourceTree = "<group>"; };
 		4CEEC34A284927EE00C979B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -191,14 +193,15 @@
 		4C46E064295642BC00185E6E /* Concepts */ = {
 			isa = PBXGroup;
 			children = (
-				4CAA10DF2C2C7EAC00799300 /* AsyncInit.swift */,
 				4CA223FF28CFC49900944456 /* Actors.swift */,
+				4CAA10DF2C2C7EAC00799300 /* AsyncInit.swift */,
 				4C46E0652956433200185E6E /* CircularDependencies.swift */,
 				4C4ED1F728FDADB3009E41A5 /* FunctionInjection.swift */,
 				4C46E062295642B100185E6E /* GenericAPIs.swift */,
+				4CE7C4452E36C236007341A4 /* MainActorContainer.swift */,
 				4C977B3A29A2AD3A0072FC17 /* SimpleContainer.swift */,
-				4C977B3C29A3DAC70072FC17 /* TestNonExtendableContainer.swift */,
 				4C51169729E1B3E900B4ADD4 /* Tags.swift */,
+				4C977B3C29A3DAC70072FC17 /* TestNonExtendableContainer.swift */,
 			);
 			path = Concepts;
 			sourceTree = "<group>";
@@ -259,21 +262,21 @@
 		4CEEC347284927EE00C979B3 /* FactoryDemo */ = {
 			isa = PBXGroup;
 			children = (
-				4CEEC348284927EE00C979B3 /* FactoryDemoApp.swift */,
-				4CEEC35B2849309C00C979B3 /* FactoryDemoApp+Injection.swift */,
-				4C3F6FE82932C5F80084A647 /* FactoryDemoApp+AutoRegister.swift */,
-				4C0AF2012A2BB0F200CA46FE /* FactoryDemoApp+AA.swift */,
-				4CEEC34A284927EE00C979B3 /* ContentView.swift */,
-				4C38E9D12AED7166002063CD /* ObservableView.swift */,
-				4CEEC35F2849311000C979B3 /* ContentViewModel.swift */,
-				4C6914432988A05D0083A78F /* ContainerDemoView.swift */,
-				4C947C322988A13800815704 /* ContainerDemoViewModel.swift */,
-				4CEEC35D284930DB00C979B3 /* Services.swift */,
 				4CEEC34C284927EF00C979B3 /* Assets.xcassets */,
 				4C46E064295642BC00185E6E /* Concepts */,
-				4CEEC34E284927EF00C979B3 /* Preview Content */,
+				4C6914432988A05D0083A78F /* ContainerDemoView.swift */,
+				4C947C322988A13800815704 /* ContainerDemoViewModel.swift */,
+				4CEEC34A284927EE00C979B3 /* ContentView.swift */,
+				4CEEC35F2849311000C979B3 /* ContentViewModel.swift */,
+				4CEEC348284927EE00C979B3 /* FactoryDemoApp.swift */,
+				4C0AF2012A2BB0F200CA46FE /* FactoryDemoApp+AA.swift */,
+				4C3F6FE82932C5F80084A647 /* FactoryDemoApp+AutoRegister.swift */,
+				4CEEC35B2849309C00C979B3 /* FactoryDemoApp+Injection.swift */,
 				4CF40C3B2A228E5900935E49 /* IODemoView.swift */,
 				4C02802E2AF6D62A00768BA9 /* ModelTest.swift */,
+				4C38E9D12AED7166002063CD /* ObservableView.swift */,
+				4CEEC34E284927EF00C979B3 /* Preview Content */,
+				4CEEC35D284930DB00C979B3 /* Services.swift */,
 			);
 			path = FactoryDemo;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				4C4ED1F828FDADB3009E41A5 /* FunctionInjection.swift in Sources */,
 				4C0AF2022A2BB0F200CA46FE /* FactoryDemoApp+AA.swift in Sources */,
 				4C947C332988A13800815704 /* ContainerDemoViewModel.swift in Sources */,
+				4CE7C4462E36C246007341A4 /* MainActorContainer.swift in Sources */,
 				4C46E063295642B100185E6E /* GenericAPIs.swift in Sources */,
 				4CEEC349284927EE00C979B3 /* FactoryDemoApp.swift in Sources */,
 				4CF40C3C2A228E5900935E49 /* IODemoView.swift in Sources */,
@@ -767,6 +771,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hmlong.FactoryDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -797,6 +803,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hmlong.FactoryDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

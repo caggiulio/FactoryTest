@@ -32,7 +32,7 @@ class MockObservationService: ObservationServiceType {
 
 @available(iOS 17, *)
 extension Container {
-    var observableService: Factory<ObservationServiceType> {
+    @MainActor var observableService: Factory<ObservationServiceType> {
         self { ObservationService() }
     }
 }
@@ -63,7 +63,7 @@ struct ObservableView: View {
 
 @available(iOS 17, *)
 extension Container {
-    var observableServiceWithPreview: Factory<ObservationServiceType> {
+    @MainActor var observableServiceWithPreview: Factory<ObservationServiceType> {
         self { ObservationService() }
             .onPreview {
                 MockObservationService(name: "MockObservationService2")

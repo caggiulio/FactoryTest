@@ -46,7 +46,7 @@ import SwiftUI
 ///  If the Container's @TaskLocal macro provided `withValue` function is used, the aforementioned scope of the container will be isolated to that task.
 ///
 ///  See <doc:Containers> for more information.
-public final class Container: SharedContainer, @unchecked Sendable {
+public nonisolated final class Container: SharedContainer, @unchecked Sendable {
     /// Define the default shared container.
     #if swift(>=5.5)
     @TaskLocal public static var shared = Container()
@@ -432,9 +432,11 @@ extension ManagedContainer {
     internal func unsafeCheckAutoRegistration() {
         if manager.state.autoRegistrationCheckNeeded {
             manager.state.autoRegistrationCheckNeeded = false
-            manager.autoRegistering = true
-            (self as? AutoRegistering)?.autoRegister()
-            manager.autoRegistering = false
+            if let container = self as? AutoRegistering {
+                manager.autoRegistering = true
+                container.autoRegister()
+                manager.autoRegistering = false
+            }
         }
     }
 }
