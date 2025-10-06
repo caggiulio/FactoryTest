@@ -64,8 +64,7 @@ public nonisolated struct FactoryRegistration<P,T> {
         #if DEBUG
         let traceIndex: Int = globalTraceResolutions.count
         let traceLevel: Int = Scope.graph.depth
-        var traceNew: String?
-        var traceNewType: String?
+        var traceNewType: String
         #endif
 
         if let found = options?.factoryForCurrentContext() as? TypedFactory<P,T> {
@@ -90,10 +89,6 @@ public nonisolated struct FactoryRegistration<P,T> {
             let indent = String(repeating: "    ", count: traceLevel)
             let entry = "\(traceLevel): \(indent)\(type(of: container)).\(key.key)<\(T.self)>"
             globalTraceResolutions.append(entry)
-            current = { [wrapped = current] in
-                traceNew = traceNewType // detects if new instance was created from the wrapped factory
-                return wrapped($0)
-            }
         }
 
         if globalCircularDependencyTesting, globalCircularDependencyKeys.insert(key).0 == false {
@@ -105,12 +100,12 @@ public nonisolated struct FactoryRegistration<P,T> {
 
         Scope.graph.enter()
 
-        let instance: T
+        let (instance, instantiated): (T, Bool)
         if let scope = options?.scope ?? manager.defaultScope {
             let parameterizedKey = options?.scopeOnParameters == true ? key.parameterized(parameters) : key
-            instance = scope.resolve(using: manager.cache, key: parameterizedKey, ttl: options?.ttl, factory: { current(parameters) }) }
+            (instance, instantiated) = scope.resolve(using: manager.cache, key: parameterizedKey, ttl: options?.ttl, factory: { current(parameters) }) }
         else {
-            instance = current(parameters)
+            (instance, instantiated) = (current(parameters), true)
         }
 
         Scope.graph.leave()
@@ -124,7 +119,7 @@ public nonisolated struct FactoryRegistration<P,T> {
             let address = Int(bitPattern: ObjectIdentifier(instance as AnyObject))
             let type = type(of: instance as Any)
             let entry = globalTraceResolutions[traceIndex]
-            globalTraceResolutions[traceIndex] = "\(entry) = \(traceNew ?? "C"):\(address) \(type)"
+            globalTraceResolutions[traceIndex] = "\(entry) = \(instantiated ? traceNewType : "C"):\(address) \(type)"
             if traceLevel == 0 {
                 globalTraceResolutions.forEach { globalLogger($0) }
                 globalTraceResolutions = []
@@ -132,8 +127,8 @@ public nonisolated struct FactoryRegistration<P,T> {
         }
         #endif
 
-        if let decorator = options?.decorator as? (T) -> Void {
-            decorator(instance)
+        if let decorator = options?.decorator as? (T, Bool) -> Void {
+            decorator(instance, instantiated)
         }
         if let decorator = manager.state.decorator {
             decorator(instance)
@@ -210,7 +205,7 @@ extension FactoryRegistration {
     }
 
     /// Registers a new decorator.
-    internal func decorator(_ decorator: @escaping (T) -> Void) {
+    internal func decorator(_ decorator: @escaping (T, Bool) -> Void) {
         options { options in
             options.decorator = decorator
         }

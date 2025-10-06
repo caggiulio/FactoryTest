@@ -224,6 +224,17 @@ final class CustomContainer: SharedContainer, AutoRegistering {
             self.count += 1
         }
     }
+    var decoratedNew: Factory<MyService> {
+        self {
+            MyService()
+        }
+        .decorator { (_, newInstance) in
+            if newInstance {
+                self.count += 1
+            }
+        }
+        .cached
+    }
     var once: Factory<MyServiceType> {
         self {
             MyService()
