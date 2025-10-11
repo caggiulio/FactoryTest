@@ -6,16 +6,16 @@
 //
 
 import Foundation
-import FactoryMacros
+import FactoryKit
 
 public protocol CommonType {
     func test()
 }
 
-extension Container {
-    @DefineFactory({ MacroCommonType() })
-    public var macroCommonType: CommonType
-}
+//extension Container {
+//    @DefineFactory({ MacroCommonType() })
+//    public var macroCommonType: CommonType
+//}
 
 extension Container {
     public var commonType: Factory<CommonType> { self { Common() } }

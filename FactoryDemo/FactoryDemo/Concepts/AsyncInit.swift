@@ -6,39 +6,49 @@
 //
 
 import Foundation
-import FactoryMacros
+import FactoryKit
 
 // something with an asynchronous initializer
 nonisolated struct AsyncInit {
-    let a: Int
+    private let value: Int
     init() async {
-        a = 1
+        value = 123456
+    }
+    func value() async -> Int {
+        value
     }
 }
 
 // generic wrapper for any asynchronous initializer
-nonisolated struct AsyncInitWrapper<T> {
-    let wrapped: () async -> T
+class AsyncWrapper<T> {
+    private var instance: T?
+    private let factory: () async -> T
+
+    init(factory: @escaping () async -> T) {
+        self.factory = factory
+    }
+
+    func callAsFunction() async -> T {
+        if let instance {
+            return instance
+        }
+        let instance = await factory()
+        self.instance = instance
+        return instance
+    }
 }
 
 extension Container {
-    // Factory using initialization wrapper
-    var someAsyncObject: Factory<AsyncInitWrapper<AsyncInit>> {
-        self {
-            AsyncInitWrapper { await AsyncInit() }
-        }
-    }
-    // Factory using Task isolated context
-    var taskAsyncObject: Factory<Task<AsyncInit, Never>> {
-        self {
-            Task { await AsyncInit() }
-        }
+    // Factory using async initialization wrapper
+    var asyncObject: Factory<AsyncWrapper<AsyncInit>> {
+        self { AsyncWrapper { await AsyncInit() } }.cached
     }
 }
 
 func testAsyncInit() {
+    @Injected(\.asyncObject) var asyncObject
     Task {
-        let _ = await Container.shared.someAsyncObject().wrapped()
-        let _ = await Container.shared.taskAsyncObject().value
+        let result = await asyncObject().value()
+        print("AsyncInit Value: \(result)")
     }
 }

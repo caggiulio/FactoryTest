@@ -23,17 +23,16 @@
 		4C51167629DE961900B4ADD4 /* FactoryDemoTests3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C51167529DE961900B4ADD4 /* FactoryDemoTests3.swift */; };
 		4C51167829DF03C900B4ADD4 /* FactoryDemoTestsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C51167729DF03C900B4ADD4 /* FactoryDemoTestsServices.swift */; };
 		4C51169829E1B3E900B4ADD4 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C51169729E1B3E900B4ADD4 /* Tags.swift */; };
+		4C6EB72D2E9AEC430038D888 /* FactoryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4C6EB72C2E9AEC430038D888 /* FactoryKit */; };
 		4C947C332988A13800815704 /* ContainerDemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C947C322988A13800815704 /* ContainerDemoViewModel.swift */; };
 		4C947C342988A1A100815704 /* ContainerDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6914432988A05D0083A78F /* ContainerDemoView.swift */; };
 		4C977B3B29A2AD3A0072FC17 /* SimpleContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C977B3A29A2AD3A0072FC17 /* SimpleContainer.swift */; };
 		4C977B3D29A3DAC70072FC17 /* TestNonExtendableContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C977B3C29A3DAC70072FC17 /* TestNonExtendableContainer.swift */; };
-		4C9D81572DE8FF1600D9BF5A /* FactoryMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 4C9D81562DE8FF1600D9BF5A /* FactoryMacros */; };
 		4CA2240028CFC49900944456 /* Actors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA223FF28CFC49900944456 /* Actors.swift */; };
 		4CA5899929DE482D00FA7845 /* FactoryDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA5899829DE482D00FA7845 /* FactoryDemoTests.swift */; };
 		4CAA10E02C2C7EAC00799300 /* AsyncInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA10DF2C2C7EAC00799300 /* AsyncInit.swift */; };
 		4CB1FA8D2DFCADBF00E8AD65 /* FactoryTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 4CB1FA8C2DFCADBF00E8AD65 /* FactoryTesting */; };
 		4CC679202966749400FFBB6C /* FactoryDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC6791F2966749400FFBB6C /* FactoryDemoUITests.swift */; };
-		4CE7C4462E36C246007341A4 /* MainActorContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE7C4452E36C236007341A4 /* MainActorContainer.swift */; };
 		4CEEC349284927EE00C979B3 /* FactoryDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEC348284927EE00C979B3 /* FactoryDemoApp.swift */; };
 		4CEEC34B284927EE00C979B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEEC34A284927EE00C979B3 /* ContentView.swift */; };
 		4CEEC34D284927EF00C979B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CEEC34C284927EF00C979B3 /* Assets.xcassets */; };
@@ -130,7 +129,6 @@
 		4CC6791F2966749400FFBB6C /* FactoryDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryDemoUITests.swift; sourceTree = "<group>"; };
 		4CCC840D2868CF5B00B474F7 /* Common.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Common.xcodeproj; path = Common/Common.xcodeproj; sourceTree = "<group>"; };
 		4CCC84382868CF8900B474F7 /* Networking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Networking.xcodeproj; path = Networking/Networking.xcodeproj; sourceTree = "<group>"; };
-		4CE7C4452E36C236007341A4 /* MainActorContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainActorContainer.swift; sourceTree = "<group>"; };
 		4CEEC345284927EE00C979B3 /* FactoryDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FactoryDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CEEC348284927EE00C979B3 /* FactoryDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryDemoApp.swift; sourceTree = "<group>"; };
 		4CEEC34A284927EE00C979B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -163,9 +161,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C6EB72D2E9AEC430038D888 /* FactoryKit in Frameworks */,
 				4C0280302AF7F44800768BA9 /* Common.framework in Frameworks */,
 				4C38E9D52AED74E3002063CD /* Networking.framework in Frameworks */,
-				4C9D81572DE8FF1600D9BF5A /* FactoryMacros in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +196,6 @@
 				4C46E0652956433200185E6E /* CircularDependencies.swift */,
 				4C4ED1F728FDADB3009E41A5 /* FunctionInjection.swift */,
 				4C46E062295642B100185E6E /* GenericAPIs.swift */,
-				4CE7C4452E36C236007341A4 /* MainActorContainer.swift */,
 				4C977B3A29A2AD3A0072FC17 /* SimpleContainer.swift */,
 				4C51169729E1B3E900B4ADD4 /* Tags.swift */,
 				4C977B3C29A3DAC70072FC17 /* TestNonExtendableContainer.swift */,
@@ -361,7 +358,7 @@
 			);
 			name = FactoryDemo;
 			packageProductDependencies = (
-				4C9D81562DE8FF1600D9BF5A /* FactoryMacros */,
+				4C6EB72C2E9AEC430038D888 /* FactoryKit */,
 			);
 			productName = FactoryDemo;
 			productReference = 4CEEC345284927EE00C979B3 /* FactoryDemo.app */;
@@ -515,7 +512,6 @@
 				4C4ED1F828FDADB3009E41A5 /* FunctionInjection.swift in Sources */,
 				4C0AF2022A2BB0F200CA46FE /* FactoryDemoApp+AA.swift in Sources */,
 				4C947C332988A13800815704 /* ContainerDemoViewModel.swift in Sources */,
-				4CE7C4462E36C246007341A4 /* MainActorContainer.swift in Sources */,
 				4C46E063295642B100185E6E /* GenericAPIs.swift in Sources */,
 				4CEEC349284927EE00C979B3 /* FactoryDemoApp.swift in Sources */,
 				4CF40C3C2A228E5900935E49 /* IODemoView.swift in Sources */,
@@ -860,9 +856,9 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4C9D81562DE8FF1600D9BF5A /* FactoryMacros */ = {
+		4C6EB72C2E9AEC430038D888 /* FactoryKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = FactoryMacros;
+			productName = FactoryKit;
 		};
 		4CB1FA8C2DFCADBF00E8AD65 /* FactoryTesting */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import FactoryMacros
+import FactoryKit
 import Common
 import SwiftUI
 
@@ -161,7 +161,7 @@ extension Container {
 }
 
 
-extension Container {
-    @DefineFactory({ MyService() }, scope: .unique)
-    var myMacroService: MyServiceType
-}
+//extension Container {
+//    @DefineFactory({ MyService() }, scope: .unique)
+//    var myMacroService: MyServiceType
+//}

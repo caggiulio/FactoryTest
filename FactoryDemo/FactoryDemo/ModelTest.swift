@@ -5,7 +5,7 @@
 //  Created by Michael Long on 11/4/23.
 //
 
-import FactoryMacros
+import FactoryKit
 import SwiftUI
 
 struct ModelTest: View {

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import FactoryMacros
+import FactoryKit
 
 struct ContentView: View {
 
