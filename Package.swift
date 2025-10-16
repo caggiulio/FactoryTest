@@ -45,7 +45,7 @@ let package = Package(
             path: "Sources/Factory",
             resources: [.copy("PrivacyInfo.xcprivacy")],
             swiftSettings: [
-                .unsafeFlags(["-enable-library-evolution"])
+                //.unsafeFlags(["-enable-library-evolution"])
             ]
         ),
         .target(
@@ -54,7 +54,7 @@ let package = Package(
             path: "Sources/FactoryKit",
             resources: [.copy("PrivacyInfo.xcprivacy")],
             swiftSettings: [
-                .unsafeFlags(["-enable-library-evolution"])
+                //.unsafeFlags(["-enable-library-evolution"])
             ]
         ),
         .target(
@@ -72,11 +72,9 @@ let package = Package(
     ]
 )
 
-#if compiler(>=6)
-for target in package.targets where target.type != .system {
+for target in package.targets {
     target.swiftSettings = target.swiftSettings ?? []
     target.swiftSettings?.append(contentsOf: [
-        .enableExperimentalFeature("StrictConcurrency"),
+        .unsafeFlags(["-enable-library-evolution"])
     ])
 }
-#endif
