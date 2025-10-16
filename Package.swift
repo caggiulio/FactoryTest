@@ -19,6 +19,11 @@ let package = Package(
             targets: ["FactoryKit"]
         ),
         .library(
+            name: "Factory-dynamic",
+            type: .dynamic,
+            targets: ["Factory"]
+        )
+        .library(
             name: "Factory",
             targets: ["Factory"]
         ),
