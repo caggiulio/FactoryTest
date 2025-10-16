@@ -22,7 +22,7 @@ let package = Package(
             name: "Factory-dynamic",
             type: .dynamic,
             targets: ["Factory"]
-        )
+        ),
         .library(
             name: "Factory",
             targets: ["Factory"]
