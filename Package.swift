@@ -40,7 +40,7 @@ let package = Package(
             path: "Sources/Factory",
             resources: [.copy("PrivacyInfo.xcprivacy")],
             swiftSettings: [
-//                .unsafeFlags(["-enable-library-evolution"], .when(configuration: .release))
+                .unsafeFlags(["-enable-library-evolution"], .when(configuration: .release))
             ]
         ),
         .target(
